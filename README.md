@@ -1,87 +1,150 @@
-# 🧬 Biosphere – Sistema de Gestão de Exames e Laudos Clínicos
+# 🧬 Biosphere – Sistema Acadêmico de Gestão de Exames e Laudos
 
-O **Biosphere** é um sistema web desenvolvido para gerenciar **exames laboratoriais, consultas médicas e laudos clínicos**, integrando pacientes, médicos, biomédicos e administradores em uma única plataforma.
+O **Biosphere** é um sistema web desenvolvido como **projeto acadêmico**, com o objetivo de simular o funcionamento de uma clínica/laboratório, permitindo o gerenciamento de **usuários, consultas, exames e laudos clínicos**.
 
-O projeto foi pensado para simular um ambiente real de clínica/laboratório, com foco em **organização, usabilidade e fluxo de atendimento**, desde o agendamento até a liberação de laudos.
+O projeto aplica conceitos de **engenharia de software**, **organização de processos**, **integração frontend e backend** e **boas práticas de versionamento**.
 
 ---
 
 ## 🎯 Objetivo do Projeto
 
-O objetivo do Biosphere é oferecer:
-- Centralização das informações clínicas
-- Facilitação no agendamento de consultas e exames
+Simular um sistema real de gestão clínica, permitindo:
+- Centralização de informações clínicas
+- Agendamento de consultas e exames
 - Acompanhamento do status dos exames
-- Visualização e controle de laudos
-- Gestão administrativa básica
+- Organização e liberação de laudos
+- Diferentes visões conforme o perfil do usuário
 
-O sistema foi desenvolvido como parte de um **projeto acadêmico**, aplicando conceitos de engenharia de software, experiência do usuário e fluxo de processos.
+Este projeto possui finalidade exclusivamente educacional.
 
 ---
 
 ## 👥 Perfis de Usuário
 
-O sistema trabalha com múltiplos perfis, cada um com funcionalidades específicas:
-
-### 🧍 Paciente
-- Cadastro e autenticação
-- Agendamento de consultas/exames
-- Visualização do histórico
-- Acompanhamento de exames
-- Acesso aos laudos disponíveis
-
-### 🩺 Médico
-- Visualização de pacientes
-- Acompanhamento de exames
-- Consulta de histórico clínico
-- Análise de exames em andamento e finalizados
-
-### 🔬 Biomédico
-- Gerenciamento de exames
-- Atualização do status dos exames
-- Emissão de laudos
-
-### 🛠️ Administrador
-- Visão geral do sistema
-- Gestão de usuários
-- Gestão financeira (visão administrativa)
-- Controle e organização das operações
+- **Paciente**: agendamento de consultas e exames, acompanhamento de histórico e acesso a laudos.
+- **Médico**: visualização de pacientes, exames em andamento e histórico clínico.
+- **Biomédico**: gerenciamento de exames, atualização de status e emissão de laudos.
+- **Administrador**: visão geral do sistema e gestão administrativa.
 
 ---
 
-## 🖥️ Tecnologias Utilizadas
+## 🧪 Tecnologias Utilizadas
 
-### Frontend
-- **React**
-- **Vite**
-- **JavaScript (ES6+)**
-- **HTML5**
-- **CSS3**
+Frontend:
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
 
-### Backend *(repositório separado / API local)*
-- **Node.js**
-- **Express**
-- **MySQL**
-- **Sequelize**
-- **JWT (Autenticação)**
-
-> 🔗 O frontend se comunica com uma API rodando localmente, por padrão em:  
-> `http://localhost:3001`
+Backend:
+- Node.js
+- Express
+- MySQL
+- Sequelize
+- JWT (Autenticação)
 
 ---
 
-## 📂 Estrutura do Projeto (Frontend)
+## 📂 Estrutura do Projeto
 
-```text
 biosphere/
-├── public/
-├── src/
-│   ├── assets/        # Imagens e recursos visuais
-│   ├── App.jsx        # Componente principal do sistema
-│   ├── main.jsx       # Ponto de entrada do React
-│   ├── index.css      # Estilos globais
-│   └── ...
-├── index.html
-├── package.json
-├── vite.config.js
-└── README.md
+- client   (frontend)
+- server   (backend)
+- README.md
+
+Observação: a pasta node_modules não é versionada no GitHub.
+
+---
+
+## ⚙️ Como Executar o Projeto
+
+### Pré-requisitos
+
+Antes de iniciar, é necessário ter instalado:
+- Node.js (versão 18 ou superior)
+- npm
+- MySQL
+
+---
+
+## ▶️ Passo a Passo de Execução
+
+### 1️⃣ Clonar o repositório
+
+git clone https://github.com/gustavohenriqq/biopshere-finalversion.git  
+cd biosphere
+
+---
+
+### 2️⃣ Executar o Backend
+
+Entrar na pasta do servidor:  
+cd server
+
+Instalar dependências:  
+npm install
+
+Iniciar o backend:  
+npm run dev
+
+O backend será executado em:  
+http://localhost:3001
+
+---
+
+### 3️⃣ Executar o Frontend
+
+Abrir um novo terminal e entrar na pasta do frontend:  
+cd client
+
+Instalar dependências:  
+npm install
+
+Iniciar o frontend:  
+npm run dev
+
+O frontend estará disponível em:  
+http://localhost:5173
+
+---
+
+## 🔗 Comunicação entre Frontend e Backend
+
+O frontend consome a API REST do backend configurada em:  
+http://localhost:3001
+
+Importante: o backend deve estar em execução antes de utilizar o sistema no navegador.
+
+---
+
+## 📌 Observações Importantes
+
+- A pasta node_modules não é enviada ao GitHub
+- Sempre é necessário executar npm install após clonar o projeto
+- Este comportamento é padrão em projetos Node.js
+- O projeto não utiliza dados reais
+
+---
+
+## 📈 Possíveis Melhorias Futuras
+
+- Separação do código em componentes menores
+- Utilização de React Router
+- Melhor validação de formulários
+- Interface totalmente responsiva
+- Deploy em ambiente de produção
+
+---
+
+## 👨‍💻 Autor
+
+Gustavo Henrique  
+Projeto desenvolvido para fins acadêmicos.
+
+---
+
+## ⚠️ Aviso Legal
+
+Este sistema não deve ser utilizado em ambiente médico real.  
+Trata-se de um projeto educacional, sem armazenamento de dados sensíveis reais.
