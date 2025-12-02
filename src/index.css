@@ -1,0 +1,982 @@
+:root {
+  --azul-fundo: #cfe8fb;
+  --azul-biosphere: #134f84;
+  --azul-texto: #0f3560;
+  --azul-botao: #8bbdf5;
+  --azul-botao-hover: #629fdd;
+
+  --bege-fundo: #f7f3ec;
+  --bege-card: #e3dbcf;
+  --bege-card-escuro: #d5c9b6;
+
+  --cinza-borda: #c4b9aa;
+  --texto: #111827;
+  --texto-suave: #6b7280;
+  --bg-topbar: #d9d1c6;
+}
+
+/* reset simples */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--texto);
+}
+
+/* ====== LAYOUT AUTH (LOGIN / CADASTRO) ====== */
+
+.auth-page {
+  display: flex;
+  min-height: 100vh;
+}
+
+.auth-left {
+  flex: 1.1;
+  background: var(--azul-fundo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-left-inner {
+  max-width: 440px;
+  text-align: left;
+}
+
+.hero-img {
+  width: 260px;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.auth-brand-text h1 {
+  font-size: 40px;
+  margin: 0;
+  color: var(--azul-biosphere);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.auth-brand-text p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--azul-texto);
+}
+
+.auth-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+}
+
+/* painel login/cadastro */
+
+.panel {
+  width: 360px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 24px 28px 20px;
+}
+
+.panel-title {
+  text-align: center;
+  margin: 0 0 16px;
+  font-size: 20px;
+  letter-spacing: 0.08em;
+}
+
+.panel-subtitle {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-label {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.field-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #9ca3af;
+  background: #e1e8ed;
+  outline: none;
+  font-size: 13px;
+}
+
+.field-input:focus {
+  border-color: var(--azul-biosphere);
+  box-shadow: 0 0 0 1px rgba(19, 79, 132, 0.2);
+}
+
+.row-remember {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+}
+
+.remember-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+
+.dot-active {
+  background: var(--azul-biosphere);
+}
+
+.remember-text {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
+
+/* ====== BOTÕES ====== */
+
+/* botão principal (Logar, Cadastrar, Agendar, etc.) */
+.btn-cta {
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(
+    135deg,
+    var(--azul-biosphere),
+    var(--azul-botao)
+  );
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  box-shadow: 0 6px 14px rgba(15, 53, 96, 0.25);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.btn-cta:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 53, 96, 0.3);
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(15, 53, 96, 0.22);
+}
+
+/* botão secundário (Mudar horário, Cancelar consulta, etc.) */
+.btn-neutral {
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--cinza-borda);
+  background: #f9fafb;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.1s ease, box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+.btn-neutral:hover {
+  background: #eceff3;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-0.5px);
+}
+
+.btn-neutral:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* link (Criar conta, Esqueceu a senha, links simples em tabelas) */
+.link-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 12px;
+  color: var(--azul-biosphere);
+  cursor: pointer;
+}
+
+.link-button.big {
+  display: block;
+  margin: 12px auto 0;
+  font-size: 14px;
+}
+
+/* seleção de tipo de cadastro */
+
+.role-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-role {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--azul-botao);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-role:hover {
+  background: var(--azul-botao-hover);
+}
+
+.select-wrapper {
+  margin-bottom: 8px;
+}
+
+.select-pill {
+  width: 100%;
+  padding: 10px;
+  border-radius: 999px;
+  border: 1px solid #9ca3af;
+  background: #e1e8ed;
+  font-size: 13px;
+}
+
+/* formulário em grid (cadastro, etc.) */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 10px 12px;
+  margin-top: 10px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.field-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.file-input {
+  padding: 6px 8px;
+  background: #f3f4f6;
+}
+
+.form-footer {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+}
+
+/* ====== APP INTERNO ====== */
+
+.app-shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bege-fundo);
+}
+
+.topbar {
+  height: 52px;
+  background: var(--bg-topbar);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.topbar-left {
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-username {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.icon-button.big {
+  font-size: 18px;
+}
+
+.avatar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.avatar-button:hover {
+  background: #e5e7eb;
+}
+
+.avatar-circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #4b5563;
+  background: #f9fafb;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 60px;
+  background: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  position: relative;
+}
+
+.sidebar-rotated {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-top: 12px;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.sidebar .bottom {
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+.app-content {
+  flex: 1;
+  padding: 16px 24px;
+  overflow-y: auto;
+}
+
+/* menu lateral (abre do lado esquerdo) */
+
+.side-menu {
+  position: fixed;
+  top: 52px; /* abaixo da topbar */
+  left: 60px; /* encostado na sidebar */
+  width: 220px;
+  background: var(--bege-card);
+  border-radius: 0 12px 12px 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 40;
+}
+
+.side-menu-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  color: #4b5563;
+}
+
+.side-menu-item {
+  text-align: left;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  color: #111827;
+}
+
+.side-menu-item:hover {
+  background: var(--bege-card-escuro);
+}
+
+.side-menu-item.active {
+  background: #cfc3b3;
+  font-weight: 600;
+}
+
+.side-menu hr {
+  border: none;
+  border-top: 1px solid #d1c7b8;
+  margin: 6px 0;
+}
+
+/* ====== PÁGINAS ====== */
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-header h2 {
+  margin: 0 0 4px;
+}
+
+.page-header span {
+  font-size: 20px;
+}
+
+.welcome-sub {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+/* caixas e cards */
+
+.info-banner {
+  background: var(--bege-card);
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.box {
+  background: var(--bege-card);
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* ====== DASHBOARD CARDS ====== */
+
+.cards-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-resumo {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+}
+
+.card-valor {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--azul-biosphere);
+  margin: 0;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.card-titulo {
+  font-size: 13px;
+  color: var(--texto-suave);
+  margin: 0;
+}
+
+/* Círculo decorativo */
+.card-resumo::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--azul-fundo);
+  border: 4px solid var(--bege-fundo);
+  z-index: 10;
+}
+
+.box-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.box-text {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ====== STATUS PILLS ====== */
+
+.status-pill {
+  display: inline-block;
+  padding: 6px 14px !important;
+  border-radius: 999px;
+  font-size: 14px !important;   /* 🔥 aumenta a letra de verdade */
+  font-weight: 600;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+.status-ok {
+  background: #d1fae5; /* Verde claro */
+  color: #065f46; /* Verde escuro */
+}
+
+.status-pending {
+  background: #fef3c7; /* Amarelo claro */
+  color: #92400e; /* Laranja escuro */
+}
+
+.status-cancel {
+  background: #fee2e2; /* Vermelho claro */
+  color: #991b1b; /* Vermelho escuro */
+}
+
+.btn-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* resumo cards médico */
+
+.cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.resumo-card {
+  background: var(--bege-card);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.resumo-card-inner {
+  height: 94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.resumo-title {
+  font-size: 13px;
+}
+
+.resumo-bolha {
+  align-self: center;
+  width: 70px;
+  height: 50px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* tabelas */
+
+.table-wrapper {
+  margin-top: 8px;
+}
+
+.table-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.table-simple {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table-simple th,
+.table-simple td {
+  padding: 8px 10px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.table-simple thead {
+  background: #e7dfd3;
+}
+
+.table-simple tbody tr:nth-child(even) {
+  background: #f3ede3;
+}
+
+.table-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* status pills */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+}
+
+.status-ok {
+  background: #bbf7d0;
+  color: #166534;
+}
+
+.status-pending {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-cancel {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+/* abas biomédico */
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.tab-btn {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tab-btn-active {
+  background: var(--azul-botao);
+  border-color: var(--azul-botao-hover);
+}
+
+/* textos auxiliares */
+
+.dot-separator {
+  margin: 0 4px;
+}
+
+.hint-text {
+  font-size: 11px;
+  color: var(--texto-suave);
+  margin-top: 2px;
+}
+
+/* responsivo básico */
+
+@media (max-width: 900px) {
+  .auth-page {
+    flex-direction: column;
+  }
+
+  .auth-left {
+    padding: 24px 0 8px;
+  }
+
+  .auth-right {
+    padding: 16px 0 24px;
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .app-body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    width: 100%;
+    height: 46px;
+    justify-content: flex-start;
+    padding: 4px 10px;
+  }
+
+  .sidebar-rotated,
+  .sidebar .bottom {
+    display: none;
+  }
+
+  .side-menu {
+    left: 0;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  /* ====== AJUSTES VISUAIS PARA HOME / DASHBOARDS ====== */
+
+/* Cabeçalho das páginas internas */
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.page-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--azul-texto);
+}
+
+.page-header p,
+.welcome-sub {
+  margin: 0;
+  font-size: 14px;
+  color: var(--texto-suave);
+}
+
+/* Fundo levemente mais sofisticado na área de conteúdo */
+.app-content {
+  flex: 1;
+  padding: 20px 24px 24px;
+  overflow-y: auto;
+  background: radial-gradient(circle at top left, #fdfaf5 0, #f7f3ec 45%, #f0e6d8 100%);
+}
+
+/* Banner de info (exames disponíveis, etc.) */
+.info-banner {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-banner::before {
+  content: "ℹ️";
+  font-size: 18px;
+}
+
+/* Caixa da próxima consulta em destaque */
+.box.box-proxima-consulta {
+  position: relative;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px 16px 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  border-left: 4px solid var(--azul-biosphere);
+}
+
+.box.box-proxima-consulta .box-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--texto-suave);
+}
+
+.box.box-proxima-consulta .box-text {
+  font-size: 15px;
+  margin: 4px 0 10px;
+}
+
+.box.box-proxima-consulta .btn-row {
+  margin-top: 4px;
+}
+
+/* Tabelas mais elegantes */
+.table-wrapper {
+  margin-top: 14px;
+}
+
+.table-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--azul-texto);
+}
+
+.table-simple {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: #fdfaf5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-simple thead {
+  background: #e7dfd3;
+}
+
+.table-simple th,
+.table-simple td {
+  padding: 8px 10px;
+  border: 1px solid var(--cinza-borda);
+}
+
+.table-simple tbody tr:nth-child(even) {
+  background: #f5ede2;
+}
+
+/* Ações da tabela em linha horizontal, ficando mais moderno */
+.table-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+/* Cards de resumo do médico/biomédico com leve destaque */
+.resumo-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.14);
+}
+
+.resumo-bolha {
+  align-self: flex-end;
+  width: 74px;
+  height: 52px;
+  border-radius: 999px;
+  border: 2px solid #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* Tabs do biomédico um pouco mais “pill” */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.tab-btn {
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid #cbd5e1;
+  background: #f3f4f6;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.tab-btn-active {
+  background: var(--azul-biosphere);
+  border-color: var(--azul-biosphere);
+  color: #ffffff;
+}
+/* Status (Concluído / Rejeitado / Em análise) */
+.status-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;        /* ✅ aumenta o texto */
+  font-weight: 600;      /* ✅ deixa mais legível */
+  line-height: 1;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+/* ✅ Concluído / Aceito */
+.status-ok {
+  background-color: #e7f6ee;
+  color: #1e7f4f;
+}
+
+/* ❌ Rejeitado / Cancelado */
+.status-cancel {
+  background-color: #fdecec;
+  color: #b42318;
+}
+
+/* ⏳ Em análise / Pendente */
+.status-pending {
+  background-color: #fff7e6;
+  color: #b54708;
+}
+/* deixa o botão com cara de link */
+.link-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: #0066cc; /* a cor que você quiser */
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* remove o quadrado quando clica/foca */
+.link-button:focus,
+.link-button:active {
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+.link-button {
+  display: inline; /* ou inline-block */
+}
+.acoes-vazias {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+}

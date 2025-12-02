@@ -1,0 +1,11 @@
+# 📦 Banco de dados
+DATABASE_HOST=localhost
+DATABASE_PORT=3306
+DATABASE=biosphere
+DATABASE_USER=root
+DATABASE_PASS=
+
+# 🔐 JWT
+TOKEN_SECRET=minha_senha_de_token_muito_secreta_123
+TOKEN_EXPIRATION=7d
+    
