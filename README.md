@@ -135,12 +135,6 @@ Importante: o backend deve estar em execução antes de utilizar o sistema no na
 - Interface totalmente responsiva
 - Deploy em ambiente de produção
 
----
-
-## 👨‍💻 Autor
-
-Gustavo Henrique  
-Projeto desenvolvido para fins acadêmicos.
 
 ---
 
